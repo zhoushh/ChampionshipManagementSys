@@ -34,7 +34,12 @@ def loginView(request):
 			if user:
 				login(request, user)
 				print("login succeeded")
-				return render(request, 'index.html')
+				if user.userType == 'association':
+					return render(request, 'orgnisation/org_index.html')
+				elif user.userType == 'club':
+					return HttpResponse('club user logged')
+				else:
+					return render(request, 'index.html')
 			else:
 				return HttpResponse("Sorry. Your username or password is not correct.")
 		else:
