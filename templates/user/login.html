@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+{% block content %}
+
+    <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<form role='form' action="." method="post">
+{#				<div class="form-group">#}
+{##}
+{#					<label for="InputUsername">#}
+{#						用户名#}
+{#					</label>#}
+{#					<input type="text" class="form-control" id="InputUsername">#}
+{#				</div>#}
+{#				<div class="form-group">#}
+{##}
+{#					<label for="InputPassword">#}
+{#						密码#}
+{#					</label>#}
+{#					<input type="password" class="form-control" id="InputPassword">#}
+{#				</div>#}
+                {% csrf_token %}
+                {{ form.as_p }}
+
+				<button type="submit" class="btn btn-primary">
+					登录
+				</button>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}

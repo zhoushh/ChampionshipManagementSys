@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}注册{% endblock %}
+
+{% block content %}
+    <div class="row">
+		<div class="col-md-8">
+			<form role="form" action="." method="post">{% csrf_token %}
+				<div class="form-group">
+
+					<label for="{{ form.username.id_for_label }}">
+						用户名
+					</label>
+{#					<input type="email" class="form-control" id="userNameInput">#}
+                    {{ form.username }}
+				</div>
+
+				<div class="form-group">
+
+					<label for="{{ form.password.id_for_label }}">
+						密码
+					</label>
+{#					<input type="password" class="form-control" id="passwordInput">#}
+                    {{ form.password }}
+				</div>
+
+				<div class="form-group">
+
+					<label for="{{ form.passwordConfirm.id_for_label }}">
+						确认密码
+					</label>
+{#					<input type="password" class="form-control" id="passwordConfirmInput">#}
+                    {{ form.passwordConfirm }}
+				</div>
+
+
+				<button type="submit" class="btn btn-primary">
+					确认
+				</button>
+			</form>
+		</div>
+		<div class="col-md-4">
+			<h2>
+				已经是用户？
+			</h2>
+			<p>
+				请直接登录系统
+			</p>
+			<p>
+				<a class="btn" href="{% url 'user:loginView' %}">点此登录</a>
+			</p>
+		</div>
+	</div>
+{% endblock %}
