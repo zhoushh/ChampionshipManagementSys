@@ -3,31 +3,22 @@
 {% block title %}足球赛事管理信息系统{% endblock %}
 
 {% block content %}
-    <div class="row">
+	<div class="row">
 		<div class="col-md-3">
 			<div class="list-group">
-				 <a href="#" class="list-group-item list-group-item-action active">总览</a>
-				 <a href='/' style="text-decoration-line: none"><div class="list-group-item">
+				<a href="#" class="list-group-item list-group-item-action active">总览</a>
+				<a href='/' class="list-group-item list-group-item-action" style="text-decoration-line: none">
 					日程
-				</div></a>
-				<!-- <div class="list-group-item">
-					<h4 class="list-group-item-heading">
-						List group item heading
-					</h4>
-					<p class="list-group-item-text">
-						...
-					</p>
-				</div> -->
-				<a href='/' style="text-decoration-line: none"><div class="list-group-item justify-content-between">
+				</a>
+				<a href='/' class="list-group-item list-group-item-action" style="text-decoration-line: none">
 					信息发布
-					<!--  <span class="badge badge-secondary badge-pill">14</span> -->
-				</div></a>
-				<a href='/' style="text-decoration-line: none"><div class="list-group-item justify-content-between">
-					操作
-				</div> </a>
-				 <!-- <a href="#" class="list-group-item list-group-item-action active justify-content-between">Home <span class="badge badge-light badge-pill">14</span></a> -->
+				</a>
+				<a href="{% url 'orgnisation:orgOperationView' %}" class="list-group-item list-group-item-action" style="text-decoration-line: none">
+					赛事管理
+				</a>
 			</div>
 		</div>
+
 		<div class="col-md-9">
 			<div class="row">
 				<div class="col-md-12">

@@ -13,18 +13,6 @@ def index(request):
 	return render(request, 'index.html')
 
 
-# def loginView(request):
-#     if request.method == 'POST':
-#         print('POST')
-#         username = request.POST.get('username', '')
-#         password = request.POST.get('password', '')
-#         user = authenticate(username = username, password = password)
-#         if user :
-#             login(request, user)
-#             return render(request, 'index.html')
-#
-#     return render(request, 'user/login.html')
-
 def loginView(request):
 	if request.method == 'POST':
 		login_form = LoginForm(request.POST)

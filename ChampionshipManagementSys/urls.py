@@ -22,5 +22,6 @@ urlpatterns = [
 	path('admin/', admin.site.urls),
 	path('', uv.index),
 	path('user/', include('user.urls', namespace='user')),
-	path('org/', include('orgnisation.urls', namespace='org'))
+	path('org/', include('orgnisation.urls', namespace='org')),
+	path('chs/', include('championship.urls', namespace='chs'))
 ]
