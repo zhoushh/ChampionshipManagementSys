@@ -23,5 +23,5 @@ urlpatterns = [
 	path('', uv.index),
 	path('user/', include('user.urls', namespace='user')),
 	path('org/', include('orgnisation.urls', namespace='org')),
-	path('chs/', include('championship.urls', namespace='chs'))
+	#path('chs/', include('championship.urls', namespace='chs'))
 ]
