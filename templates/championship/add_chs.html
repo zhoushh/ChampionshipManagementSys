@@ -12,14 +12,101 @@
 				<a href='/' class="list-group-item list-group-item-action">
 					信息发布
 				</a>
-				<a href="{% url 'orgnisation:orgOperationView' %}" class="list-group-item list-group-item-action active">
+				<a href="{% url 'orgnisation:orgOperationView' %}"
+				   class="list-group-item list-group-item-action active">
 					赛事管理
 				</a>
 			</div>
 		</div>
 
 		<div class="col-md-9">
+			<div class="row">
+				<div class="col-md-3"></div>
+				<div class="col-md-9">
+					<h3>
+						创建赛事
+					</h3>
+				</div>
+			</div>
+{#			<div class="row">#}
+{#				<div class="col-md-3">#}
+{#				</div>#}
+{#				<div class="col-md-3">#}
+{#					<label for="chsCodeInput">赛事代码</label>#}
+{#				</div>#}
+{#				<div class="col-md-3">#}
+{#					<input type="text" class="form-control" id="chsCodeInput">#}
+{#				</div>#}
+{#				<div class="col-md-3"></div>#}
+{#			</div>#}
+			<div class="row">
+				<div class="col-md-3">
+				</div>
+				<div class="col-md-3">
+					<label for="chsNameInput">赛事名称</label>
+				</div>
+				<div class="col-md-3">
+					<input type="text" class="form-control" id="chsNameInput">
+				</div>
+				<div class="col-md-3"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-3">
+				</div>
+				<div class="col-md-3">
+					<label>赛事范围</label>
+				</div>
+				<div class="col-md-3">
+					<select name="chs_range">
+						<option>国家级</option>
+						<option>地区级</option>
+						<option>地方级</option>
+					</select>
+					<div class="col-md-3"></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3">
+				</div>
+				<div class="col-md-3">
+					<label>赛事类型</label>
+				</div>
+				<div class="col-md-3">
+					<select name="chs_type">
+						<option>杯赛</option>
+						<option>联赛</option>
+					</select>
+				</div>
+				<div class="col-md-3"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-3">
+				</div>
+				<div class="col-md-3">
+					<label>参赛球队数量</label>
+				</div>
+				<div class="col-md-3">
+					<input type="text" class="form-control" id="chsCapacityInput">
+				</div>
+				<div class="col-md-3"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-3">
+				</div>
+				<div class="col-md-3">
 
+					<button type="button" class="btn btn-success">
+						确认
+					</button>
+				</div>
+				<div class="col-md-3">
+
+					<button type="button" class="btn btn-primary">
+						取消
+					</button>
+				</div>
+				<div class="col-md-3"></div>
+			</div>
 		</div>
 
 {% endblock %}
