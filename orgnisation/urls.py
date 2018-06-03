@@ -1,5 +1,6 @@
 from django.urls import path,include,re_path
 from . import views
+from article.views import org_create_article
 from django.contrib.auth import views as authViews
 
 app_name = 'orgnisation'
@@ -7,5 +8,6 @@ app_name = 'orgnisation'
 urlpatterns = [
 	path("orgIndex/", views.org_index, name='orgIndexView'),
 	path("orgOperation/", views.org_operate, name='orgOperationView'),
-	path("add_chs", views.org_add_chs, name='org_add_chs')
+	path("add_chs", views.org_add_chs, name='org_add_chs'),
+	path("create_article", org_create_article, name='org_create_article')
 ]

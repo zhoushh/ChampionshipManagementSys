@@ -8,6 +8,9 @@ class Region(models.Model):
 	province = models.CharField('省份', max_length=32)
 	city = models.CharField('城市', max_length=32)
 	district = models.CharField('县市区', max_length=32, null=True)
+	
+	def __str__(self):
+		return self.province + self.city + self.district
 
 
 class Orgnisation(models.Model):
@@ -21,3 +24,6 @@ class Orgnisation(models.Model):
 	orgName = models.CharField('名称', max_length=64, unique=True)
 	orgType = models.CharField('组织类型', max_length=16, choices=orgType_choice)
 	region = models.ForeignKey(Region, verbose_name='组织地区', on_delete=models.SET_NULL, null=True, blank=True)
+	
+	def __str__(self):
+		return self.orgName
