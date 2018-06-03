@@ -18,7 +18,7 @@ class Championship(models.Model):
 	)
 	
 	chsName = models.CharField('赛事名称', max_length=64, null=True)
-	chsCode = models.CharField('赛事代码', max_length=9)
+	chsCode = models.CharField('赛事代码', max_length=9, null=True)
 	chsType = models.CharField('赛事类型', max_length=8, choices=chsType_choice)
 	capacity = models.IntegerField('参赛队伍数量')
 	range = models.CharField('赛事范围', max_length=16, choices=range_choice)

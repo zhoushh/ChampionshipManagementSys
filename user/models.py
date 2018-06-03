@@ -19,4 +19,3 @@ class UserProfile(AbstractUser):
     userType = models.CharField('用户类型', max_length=16, choices=userType_choice, default='individual')
     userInOrg = models.ForeignKey(Orgnisation, verbose_name='用户组织', on_delete=models.SET_NULL, null=True, blank=True)
     
-    
