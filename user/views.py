@@ -4,13 +4,38 @@ from django.views.generic.base import View
 from django.http import HttpResponse
 from .forms import LoginForm
 from .forms import RegistrationForm
+from article.models import Article
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 # Create your views here.
 
 
 def index(request):
-	return render(request, 'index.html')
+	articles = Article.objects.all()
+	paginator = Paginator(articles, 6)
+	page = request.GET.get('page', 1)
+	try:
+		send_articles = paginator.page(page)
+	except EmptyPage:
+		send_articles = paginator.page(paginator.num_pages)
+
+	
+	
+	# page = request.GET.get('page')
+	# if page:
+	# 	articles = Paginator.page(page).object_list
+	# else:
+	# 	articles =Paginator.page(1).object_list
+	# try:
+	# 	articles = Paginator.page(page)
+	# except PageNotAnInteger:
+	# 	articles = Paginator.page(1)
+	# except EmptyPage:
+	# 	articles = Paginator.page(Paginator.num_pages)
+		
+	
+	return render(request, 'index.html', {'articles': send_articles})
 
 
 def loginView(request):
