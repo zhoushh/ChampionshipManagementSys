@@ -24,7 +24,7 @@
 					<ul>
 						{% for article in articles %}
 							<li class="list-item">
-								<a>{{ article.title }}</a>
+								<a href="{% url 'article:view_article' article.id %}">{{ article.title }}</a>
 							</li>
 						{% endfor %}
 					</ul>
