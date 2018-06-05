@@ -50,7 +50,7 @@ def loginView(request):
 				if user.userType == 'association':
 					return render(request, 'orgnisation/org_index.html')
 				elif user.userType == 'club':
-					return HttpResponse('club user logged')
+					return render(request, 'org_club/club_index.html')
 				else:
 					return render(request, 'index.html')
 			else:

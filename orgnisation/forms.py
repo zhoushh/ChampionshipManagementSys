@@ -6,4 +6,4 @@ class team_member_management(forms.ModelForm):
 	
 	class Meta:
 		model = Team
-		fields = ('teamName', 'playerList')
+		fields = ('playerList',)

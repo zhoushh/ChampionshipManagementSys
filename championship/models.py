@@ -39,7 +39,8 @@ class Team(models.Model):
 	teamType = models.CharField('球队类型', max_length=32, choices=teamType_choice)
 	teamName = models.CharField('球队名称', max_length=64, unique=True)
 	belongTo = models.ForeignKey(Orgnisation, verbose_name='所属组织', on_delete=models.SET_NULL, null=True, blank=True)
-	playerList = models.FileField(upload_to='E:/gfile/Team/player_lists', null=True)
+	playerList = models.FileField(upload_to='/gfile/Team/player_lists', null=True)
+	playerStatistics = models.FileField(upload_to='/gifle/Team/player_statistics', null=True)
 	
 	def __str__(self):
 		return self.teamName
@@ -48,4 +49,4 @@ class Team(models.Model):
 class Match(models.Model):
 	belongTo = models.ForeignKey(Championship, verbose_name='所属赛事', on_delete=models.SET_NULL, null=True, blank=True)
 	dateToPlay = models.DateField()
-	techStastics = models.FileField(upload_to='E:/gfile/Match', null=True)
+	techStastics = models.FileField(upload_to='/gfile/Match', null=True)

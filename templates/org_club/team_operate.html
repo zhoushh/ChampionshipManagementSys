@@ -19,14 +19,16 @@
 			</div>
 		</div>
 		<div class="col-md-9">
-			<h1>{{ club.orgName }}</h1>
-			<h3>旗下球队：</h3>
-			<select name="team_select">
-				{% for team in teams %}
-				<option>{{ team.teamName }}</option>
-				{% endfor %}
-			</select>
-		<a class="btn" href="{% url 'org:team_player_list_op' user.userInOrg team_selected.id %}">查询或修改此球队</a>
+			<h1>{{ team_selected.teamName }}</h1>
+			{% if team_selected.playerList %}
+				<h3>名单如下：</h3>
+				{{ team_selected.playerList }}
+			{% else %}
+				<h3>暂无名单，请提交（csv）</h3>
+				{{ player_list_form.playerList }}
+			{% endif %}
+		<a class="btn" href="{% url 'org:org_club_operate' user.userInOrg %}">返回</a>
+
 		</div>
 
 	</div>
