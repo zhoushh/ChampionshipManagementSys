@@ -27,6 +27,6 @@ urlpatterns = [
 	path('org/', include('orgnisation.urls', namespace='org')),
 	#path('chs/', include('championship.urls', namespace='chs'))
 	path('article/', include('article.urls', namespace='article')),
-	re_path(r'^gfile/(?P<path>.*)', serve, {"document_root": MEDIA_ROOT}),
+	re_path(r'^gfile/(?P<path>.*)', serve, {"document_root": MEDIA_ROOT}, name='down'),
 
 ]

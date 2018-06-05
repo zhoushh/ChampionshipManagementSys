@@ -21,108 +21,108 @@
 
 		<div class="col-md-9">
 			<form role="form" action="{% url 'orgnisation:org_add_chs' %}" method="post">{% csrf_token %}
-			<div class="row">
-				<div class="col-md-3"></div>
-				<div class="col-md-9">
-					<h3>
-						创建赛事
-					</h3>
+				<div class="row">
+					<div class="col-md-3"></div>
+					<div class="col-md-9">
+						<h3>
+							创建赛事
+						</h3>
+					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-3">
-				</div>
-				<div class="col-md-3">
-					<label for="{{ form.chsName.id_for_label }}">赛事名称</label>
-				</div>
-				<div class="col-md-3">
-					{{ form.chsName }}
-{#					<input type="text" class="form-control" id="chsNameInput">#}
-				</div>
-				<div class="col-md-3"></div>
-			</div>
-			<div class="row">
-				<div class="col-md-3">
-				</div>
-				<div class="col-md-3">
-					<label for="{{ form.range.id_for_label }}">赛事范围</label>
-				</div>
-				<div class="col-md-3">
-{#					<select name="chs_range">#}
-{#						<option>国家级</option>#}
-{#						<option>地区级</option>#}
-{#						<option>地方级</option>#}
-{#					</select>#}
-					{{ form.range }}
+				<div class="row">
+					<div class="col-md-3">
+					</div>
+					<div class="col-md-3">
+						<label for="{{ form.chsName.id_for_label }}">赛事名称</label>
+					</div>
+					<div class="col-md-3">
+						{{ form.chsName }}
+						{#					<input type="text" class="form-control" id="chsNameInput">#}
+					</div>
 					<div class="col-md-3"></div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-3">
+				<div class="row">
+					<div class="col-md-3">
+					</div>
+					<div class="col-md-3">
+						<label for="{{ form.range.id_for_label }}">赛事范围</label>
+					</div>
+					<div class="col-md-3">
+						{#					<select name="chs_range">#}
+						{#						<option>国家级</option>#}
+						{#						<option>地区级</option>#}
+						{#						<option>地方级</option>#}
+						{#					</select>#}
+						{{ form.range }}
+						<div class="col-md-3"></div>
+					</div>
 				</div>
-				<div class="col-md-3">
-					<label for="{{ form.chsType.id_for_label }}">赛事类型</label>
+				<div class="row">
+					<div class="col-md-3">
+					</div>
+					<div class="col-md-3">
+						<label for="{{ form.chsType.id_for_label }}">赛事类型</label>
+					</div>
+					<div class="col-md-3">
+						{{ form.chsType }}
+						{#					<select name="chs_type">#}
+						{#						<option>杯赛</option>#}
+						{#						<option>联赛</option>#}
+						{#					</select>#}
+					</div>
+					<div class="col-md-3"></div>
 				</div>
-				<div class="col-md-3">
-					{{ form.chsType }}
-{#					<select name="chs_type">#}
-{#						<option>杯赛</option>#}
-{#						<option>联赛</option>#}
-{#					</select>#}
+				<div class="row">
+					<div class="col-md-3">
+					</div>
+					<div class="col-md-3">
+						<label for="{{ form.capacity.id_for_label }}">参赛球队数量</label>
+					</div>
+					<div class="col-md-3">
+						{{ form.capacity }}
+						{#					<input type="text" class="form-control" id="chsCapacityInput">#}
+					</div>
+					<div class="col-md-3"></div>
 				</div>
-				<div class="col-md-3"></div>
-			</div>
-			<div class="row">
-				<div class="col-md-3">
+				<div class="row">
+					<div class="col-md-3">
+					</div>
+					<div class="col-md-3">
+						<label for="{{ form.startTime.id_for_label }}">开始日期</label>
+					</div>
+					<div class="col-md-3">
+						{{ form.startTime }}
+					</div>
+					<div class="col-md-3"></div>
 				</div>
-				<div class="col-md-3">
-					<label for="{{ form.capacity.id_for_label }}">参赛球队数量</label>
+				<div class="row">
+					<div class="col-md-3">
+					</div>
+					<div class="col-md-3">
+						<label for="{{ form.endTime.id_for_label }}">结束日期</label>
+					</div>
+					<div class="col-md-3">
+						{{ form.endTime }}
+					</div>
+					<div class="col-md-3"></div>
 				</div>
-				<div class="col-md-3">
-					{{ form.capacity }}
-{#					<input type="text" class="form-control" id="chsCapacityInput">#}
-				</div>
-				<div class="col-md-3"></div>
-			</div>
-							<div class="row">
-				<div class="col-md-3">
-				</div>
-				<div class="col-md-3">
-					<label for="{{ form.startTime.id_for_label }}">开始日期</label>
-				</div>
-				<div class="col-md-3">
-					{{ form.startTime }}
-				</div>
-				<div class="col-md-3"></div>
-			</div>
-											<div class="row">
-				<div class="col-md-3">
-				</div>
-				<div class="col-md-3">
-					<label for="{{ form.endTime.id_for_label }}">结束日期</label>
-				</div>
-				<div class="col-md-3">
-					{{ form.endTime }}
-				</div>
-				<div class="col-md-3"></div>
-			</div>
-			<div class="row">
-				<div class="col-md-3">
-				</div>
-				<div class="col-md-3">
+				<div class="row">
+					<div class="col-md-3">
+					</div>
+					<div class="col-md-3">
 
-					<button type="submit" class="btn btn-success">
-						确认
-					</button>
-				</div>
-				<div class="col-md-3">
+						<button type="submit" class="btn btn-success">
+							确认
+						</button>
+					</div>
+					<div class="col-md-3">
 
-					<button type="button" class="btn btn-primary">
-						取消
-					</button>
+						<button type="button" class="btn btn-primary">
+							取消
+						</button>
+					</div>
+					<div class="col-md-3"></div>
 				</div>
-				<div class="col-md-3"></div>
-			</div>
 			</form>
 		</div>
 

@@ -4,7 +4,7 @@ from championship.forms import AddChsForm
 # Create your views here.
 
 
-
+#改至orgnisation.models中实现
 # def chs_add(request):
 # 	if request.method == 'GET':
 # 		add_chs_form = AddChsForm()

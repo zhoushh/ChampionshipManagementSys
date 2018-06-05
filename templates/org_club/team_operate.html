@@ -21,14 +21,22 @@
 		<div class="col-md-9">
 			<h1>{{ team_selected.teamName }}</h1>
 			{% if team_selected.playerList %}
-				<h3>名单如下：</h3>
-				{{ team_selected.playerList }}
+				<h4>名单如下：</h4>
+				{#				{{ team_selected.playerList }}#}
+				<a class="btn btn-primary" href="{% url 'down' team_selected.playerList %}">下载查看</a>
+				<h4>数据统计如下：</h4>
+				<a class="btn btn-primary" href="{% url 'down' team_selected.playerStatistics %}">下载查看</a>
+
 			{% else %}
 				<h3>暂无名单，请提交（csv）</h3>
 				{{ player_list_form.playerList }}
 			{% endif %}
-		<a class="btn" href="{% url 'org:org_club_operate' user.userInOrg.id %}">返回</a>
-
+			<div class="row">
+				<div class="col-md-3"></div>
+				<div class="col-md-9">
+					<a class="btn btn-primary" href="{% url 'org:org_club_operate' user.userInOrg.id %}">返回</a>
+				</div>
+			</div>
 		</div>
 
 	</div>

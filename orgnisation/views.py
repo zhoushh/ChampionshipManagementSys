@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from championship.forms import AddChsForm
-from .forms import team_member_management
+from .forms import TeamMemberManagement, AddTeamForm
 from .models import Orgnisation
 from championship.models import Team
 import csv
@@ -53,11 +53,11 @@ def club_operate(request, org_id):
 	
 def club_team_list_operate(request, org_id, team_id):
 	if request.method == 'GET':
-		player_list_form = team_member_management()
+		player_list_form = TeamMemberManagement()
 		team_to_check = Team.objects.get(pk=team_id)
 		return render(request, 'org_club/team_operate.html', {'player_list_form': player_list_form, 'team_selected': team_to_check})
 	if request.method == 'POST':
-		player_list_form = team_member_management(request.POST)
+		player_list_form = TeamMemberManagement(request.POST)
 		team_to_check = Team.objects.get(pk=team_id)
 		org_club = Orgnisation.objects.get(pk=org_id)
 		if team_to_check.belongTo == org_club.id:
@@ -68,3 +68,18 @@ def club_team_list_operate(request, org_id, team_id):
 				return HttpResponse('error')
 		else:
 			return HttpResponse('club and team do not match. ')
+		
+		
+def club_add_team(request, org_id):
+	if request.method == 'GET':
+		add_team_form = AddTeamForm()
+		return render(request, 'org_club/club_add_team.html', {'add_team_form': add_team_form})
+	if request.method == 'POST':
+		add_team_form = AddTeamForm(request.POST or None, request.FILES or None)
+		add_team_form.belongTo = Orgnisation.objects.get(pk=org_id)
+		if add_team_form.is_valid():
+			add_team_form.save()
+			print('team added')
+			return HttpResponse('success')
+		else:
+			return HttpResponse('error')

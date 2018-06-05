@@ -12,5 +12,6 @@ urlpatterns = [
 	path("create_article/", org_create_article, name='org_create_article'),
 	path("club_index/", views.org_club_index, name='org_club_index'),
 	path("club_operate/<org_id>", views.club_operate, name='org_club_operate'),
-	path("club_operate/<org_id>/player_list/<team_id>", views.club_team_list_operate, name='team_player_list_op')
+	path("club_operate/<org_id>/player_list/<team_id>", views.club_team_list_operate, name='team_player_list_op'),
+	path("club_operate/<org_id>/add_team", views.club_add_team, name='club_add_team'),
 ]

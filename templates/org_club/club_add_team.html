@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}足球赛事管理信息系统{% endblock %}
+
+{% block content %}
+	<div class="row">
+		<div class="col-md-3">
+			<div class="list-group">
+				<a href="#" class="list-group-item list-group-item-action">总览</a>
+				<a href='/' class="list-group-item list-group-item-action" style="text-decoration-line: none">
+					日程
+				</a>
+				<a href="{% url 'org:org_create_article' %}" class="list-group-item list-group-item-action">
+					信息发布
+				</a>
+				<a href="#" class="list-group-item list-group-item-action active" style="text-decoration-line: none">
+					俱乐部管理
+				</a>
+			</div>
+		</div>
+		<form role="form" action="{% url 'org:club_add_team' user.userInOrg.id %}" method="post">{% csrf_token %}
+			<div class="col-md-9">
+				<h1>填写以下信息</h1>
+				<div class="row">
+					<div class="col-md-3">
+					</div>
+					<div class="col-md-3">
+						<label for="{{ add_team_form.teamName.id_for_label }}">球队名称</label>
+					</div>
+					<div class="col-md-3">
+						{{ add_team_form.teamName }}
+					</div>
+					<div class="col-md-3"></div>
+				</div>
+				<div class="row">
+					<div class="col-md-3">
+					</div>
+					<div class="col-md-3">
+						<label for="{{ add_team_form.teamType.id_for_label }}">队伍类别</label>
+					</div>
+					<div class="col-md-3">
+
+						{{ add_team_form.teamType }}
+						<div class="col-md-3"></div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3">
+					</div>
+					<div class="col-md-3">
+						<label for="{{ add_team_form.playerList.id_for_label }}">球员名单</label>
+					</div>
+					<div class="col-md-3">
+						{{ add_team_form.playerList }}
+					</div>
+					<div class="col-md-3"></div>
+				</div>
+
+
+				<div class="row">
+					<div class="col-md-3">
+					</div>
+					<div class="col-md-3">
+
+						<button type="submit" class="btn btn-success">
+							确认
+						</button>
+					</div>
+					<div class="col-md-3">
+
+						<button type="button" class="btn btn-primary">
+							取消
+						</button>
+					</div>
+					<div class="col-md-3"></div>
+				</div>
+				<div class="row">
+					<div class="col-md-3"></div>
+					<div class="col-md-9">
+						<a class="btn btn-primary" href="{% url 'org:org_club_operate' user.userInOrg.id %}">返回</a>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	</div>
+{% endblock %}

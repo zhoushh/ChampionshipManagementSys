@@ -21,15 +21,12 @@
 		<div class="col-md-9">
 			<h1>{{ club.orgName }}</h1>
 			<h3>旗下球队：</h3>
-{#			<select name="team_select">#}
 				{% for team in teams %}
 					<li class="list-group-item">
-					<a href="{% url 'org:team_player_list_op' user.userInOrg.id team.id %}">{{ team.teamName }}</a>
+					<a class="list-group-item list-inline-item" href="{% url 'org:team_player_list_op' user.userInOrg.id team.id %}">{{ team.teamName }}</a>
 					</li>
-{#				<option value={{ team.id }}>{{ team.teamName }}</option>#}
 				{% endfor %}
-{#			</select>#}
-{#		<a class="btn" href="{% url 'org:team_player_list_op' user.userInOrg.id team_selected %}">查询或修改此球队</a>#}
+		<a href="{% url 'org:club_add_team' user.userInOrg.id %}">添加球队</a>
 		</div>
 
 	</div>

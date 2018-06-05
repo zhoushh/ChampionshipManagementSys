@@ -25,8 +25,9 @@ class Championship(models.Model):
 	orgBy = models.ForeignKey(Orgnisation, verbose_name='承办组织', on_delete=models.SET_NULL, null=True, blank=True)
 	startTime = models.DateField('开始日期', null=True)
 	endTime = models.DateField('结束日期', null=True)
-	rank_for_league = models.FileField(upload_to='Championship/League', null=True)
-	rank_for_cup = models.FileField(upload_to='championship/cup', null=True)
+	rank_for_league = models.FileField(upload_to='Championship/league', null=True)
+	rank_for_cup = models.FileField(upload_to='Championship/cup', null=True)
+	timetable = models.FileField(upload_to='Championship/timetable', null=True)
 	
 	def __str__(self):
 		return self.chsName
