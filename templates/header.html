@@ -1,31 +1,31 @@
 {% load staticfiles %}
-    <div class="row">
-        <div class="col-md-12">
-            <ul class="nav">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">足球赛事管理信息系统</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Profile</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Messages</a>
-                </li>
-                <li class="nav-item dropdown ml-md-auto">
-                    {% if user.is_authenticated %}
-                    <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink"
-                       data-toggle="dropdown">{{ user.username }}</a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Action</a> <a class="dropdown-item" href="#">Another
-                        action</a> <a class="dropdown-item" href="#">Something else here</a>
-                        <div class="dropdown-divider">
-                        </div>
-                        <a class="dropdown-item" href="{% url 'user:logoutView' %}">登出</a>
-                    </div>
-                    {% else %}
-                    <a href="{% url 'user:loginView' %}">登录</a>
-                    {% endif %}
-                </li>
-            </ul>
-        </div>
-    </div>
+<div class="row">
+	<div class="col-md-12">
+		<ul class="nav">
+			<li class="nav-item">
+				<a class="nav-link active" href="{% url 'index' %}">足球赛事管理信息系统</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">Profile</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link disabled" href="#">Messages</a>
+			</li>
+			<li class="nav-item dropdown ml-md-auto">
+				{% if user.is_authenticated %}
+					<a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink"
+					   data-toggle="dropdown">{{ user.username }}</a>
+					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="#">Action</a> <a class="dropdown-item" href="#">Another
+						action</a> <a class="dropdown-item" href="#">Something else here</a>
+						<div class="dropdown-divider">
+						</div>
+						<a class="dropdown-item" href="{% url 'user:logoutView' %}">登出</a>
+					</div>
+				{% else %}
+					<a href="{% url 'user:loginView' %}">登录</a>
+				{% endif %}
+			</li>
+		</ul>
+	</div>
+</div>

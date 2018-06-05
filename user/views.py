@@ -21,7 +21,7 @@ def index(request):
 		send_articles = paginator.page(paginator.num_pages)
 
 	
-	
+	#失败的翻页view
 	# page = request.GET.get('page')
 	# if page:
 	# 	articles = Paginator.page(page).object_list

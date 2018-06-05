@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}足球赛事管理信息系统{% endblock %}
+
+{% block content %}
+	<div class="row">
+		<div class="col-md-3">
+			<div class="list-group">
+				<a href="#" class="list-group-item list-group-item-action">总览</a>
+				<a href='/' class="list-group-item list-group-item-action" style="text-decoration-line: none">
+					日程
+				</a>
+				<a href="{% url 'org:org_create_article' %}" class="list-group-item list-group-item-action">
+					信息发布
+				</a>
+				<a href="#" class="list-group-item list-group-item-action active" style="text-decoration-line: none">
+					俱乐部管理
+				</a>
+			</div>
+		</div>
+
+
+	</div>
+{% endblock %}
