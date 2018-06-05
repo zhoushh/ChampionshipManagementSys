@@ -27,7 +27,7 @@
 				<h3>暂无名单，请提交（csv）</h3>
 				{{ player_list_form.playerList }}
 			{% endif %}
-		<a class="btn" href="{% url 'org:org_club_operate' user.userInOrg %}">返回</a>
+		<a class="btn" href="{% url 'org:org_club_operate' user.userInOrg.id %}">返回</a>
 
 		</div>
 

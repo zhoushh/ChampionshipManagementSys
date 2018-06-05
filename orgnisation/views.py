@@ -39,7 +39,7 @@ def club_operate(request, org_id):
 	# if request.method == 'GET':
 	# 	player_management_form = team_member_management()
 		club_org = Orgnisation.objects.get(pk=org_id)
-		teams_belong_to_this = Team.objects.get(fk=org_id)
+		teams_belong_to_this = Team.objects.filter(belongTo_id=org_id)
 		return render(request, 'org_club/club_operate.html', {'club': club_org, 'teams': teams_belong_to_this})
 	# if request.method == 'POST':
 	# 	player_management_form = team_member_management(request.POST)

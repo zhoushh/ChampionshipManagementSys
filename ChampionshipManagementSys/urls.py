@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.views.generic import TemplateView
 from django.urls import path, include, re_path
 import user.views as uv
+from ChampionshipManagementSys.settings import MEDIA_ROOT
+from django.views.static import serve
 
 urlpatterns = [
 	path('admin/', admin.site.urls),
@@ -24,5 +26,7 @@ urlpatterns = [
 	path('user/', include('user.urls', namespace='user')),
 	path('org/', include('orgnisation.urls', namespace='org')),
 	#path('chs/', include('championship.urls', namespace='chs'))
-	path('article/', include('article.urls', namespace='article'))
+	path('article/', include('article.urls', namespace='article')),
+	re_path(r'^gfile/(?P<path>.*)', serve, {"document_root": MEDIA_ROOT}),
+
 ]
