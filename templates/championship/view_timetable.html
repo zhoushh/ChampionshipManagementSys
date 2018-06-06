@@ -18,18 +18,18 @@
 			</div>
 		</div>
 	<div class="col-md-9">
-		<h1>{{ chs_to_check.chsName }}</h1>
+		<h1>{{ timetable }}</h1>
 				<h4>详情如下：</h4>
-		{{ chs_to_check.chsType }}
-		{{ chs_to_check.startTime }}
-		{{ chs_to_check.endTime }}
-		{{ chs_to_check.capacity }}
+
+		<textarea>
+			{{ timetable.detail }}
+		</textarea>
 			<div class="row">
 				<div class="col-md-4">
-					<a class="btn btn-primary" href="{% url 'org:view_timetable' user.userInOrg.id chs_to_check.id chs_to_check.capacity %}">查看赛程</a>
+{#					<a class="btn btn-primary" href="{% url 'org:view_timetable' user.userInOrg.id chs_to_check.id chs_to_check.capacity %}">查看赛程</a>#}
 				</div>
 				<div class="col-md-4">
-					<a class="btn btn-primary" href="{% url 'org:generate_timetable' user.userInOrg.id chs_to_check.id chs_to_check.capacity %}">生成赛程</a>
+{#					<a class="btn btn-primary" href="{% url 'org:generate_timetable' user.userInOrg.id chs_to_check.id chs_to_check.capacity %}">生成赛程</a>#}
 				</div>
 				<div class="col-md-4">
 					<a class="btn btn-primary" href="{% url 'org:org_view_chs' user.userInOrg.id %}">返回</a>

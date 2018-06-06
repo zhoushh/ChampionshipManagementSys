@@ -27,7 +27,7 @@ class Championship(models.Model):
 	endTime = models.DateField('结束日期', null=True)
 	rank_for_league = models.FileField(upload_to='Championship/league', null=True)
 	rank_for_cup = models.FileField(upload_to='Championship/cup', null=True)
-	timetable = models.FileField(upload_to='Championship/timetable', null=True)
+	#timetable = models.FileField(upload_to='Championship/timetable', null=True)
 	team_list = models.TextField(null=True)
 	
 	def __str__(self):
@@ -54,3 +54,12 @@ class Match(models.Model):
 	belongTo = models.ForeignKey(Championship, verbose_name='所属赛事', on_delete=models.SET_NULL, null=True, blank=True)
 	dateToPlay = models.DateField()
 	techStastics = models.FileField(upload_to='Match', null=True)
+
+
+class TimetableForLeague(models.Model):
+	belong_to = models.ForeignKey(Championship, verbose_name='所属赛事', on_delete=models.SET_NULL, null=True, blank=True)
+	round_amount = models.IntegerField(null=True)
+	detail = models.TextField(null=True)
+	
+	def __str__(self):
+		return self.belong_to.chsName + '赛程表'
