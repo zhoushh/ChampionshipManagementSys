@@ -58,7 +58,7 @@ def generate_timetable(request, org_id, chs_id, chs_cap):
 	else:
 		team_list = chs_to_arrange.team_list.split(',')
 		schedule = setup_schedule(team_list)
-		schedule_str = '---赛程如下---'
+		schedule_str = '---赛程如下---\n'
 		i = 0
 		for single_schedule in schedule:
 			i = i + 1
@@ -66,7 +66,7 @@ def generate_timetable(request, org_id, chs_id, chs_cap):
 			for home, away in schedule[i]:
 				schedule_str += '{} vs {}\n'.format(home, away)
 		
-		TimetableForLeague.objects.create(belong_to=chs_to_arrange, round_amount=2 * (int(chs_cap) - 1), detail=schedule_str)
+		TimetableForLeague.objects.create(belong_to=chs_to_arrange, round_amount= int(chs_cap) - 1, detail=schedule_str)
 		
 		return HttpResponse('done')
 
