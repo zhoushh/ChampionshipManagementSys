@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}足球赛事管理信息系统{% endblock %}
+
+{% block content %}
+	<div class="row">
+		<div class="col-md-3">
+			<div class="list-group">
+				<a href="#" class="list-group-item list-group-item-action active">总览</a>
+				<a href='/' class="list-group-item list-group-item-action" style="text-decoration-line: none">
+					日程
+				</a>
+				<a href="{% url 'org:org_create_article' %}" class="list-group-item list-group-item-action">
+					信息发布
+				</a>
+				<a href="{% url 'orgnisation:orgOperationView' %}" class="list-group-item list-group-item-action" style="text-decoration-line: none">
+					赛事管理
+				</a>
+			</div>
+		</div>
+		<div class="col-md-9">
+			<h1>{{ org.orgName }}</h1>
+			<h3>所组织赛事：</h3>
+				{% for championship in championships %}
+					<li class="list-group-item">
+					<a class="list-group-item list-inline-item" href="{% url 'orgnisation:org_operate_chs' user.userInOrg.id championship.id %}">{{ championship.chsName }}</a>
+					</li>
+				{% endfor %}
+{#		<a href="{% url  %}">添加球队</a>#}
+		</div>
+
+	</div>
+{% endblock %}

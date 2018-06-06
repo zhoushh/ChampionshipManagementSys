@@ -3,8 +3,10 @@ from django.shortcuts import render
 from championship.forms import AddChsForm
 from .forms import TeamMemberManagement, AddTeamForm
 from .models import Orgnisation
-from championship.models import Team
+from championship.models import Team, Championship
 import csv
+
+
 # Create your views here.
 
 
@@ -28,34 +30,52 @@ def org_add_chs(request):
 			return HttpResponse('success')
 		else:
 			return HttpResponse('error')
-		
-		
+
+
+def org_view_chs(request, org_id):
+	org = Orgnisation.objects.get(pk=org_id)
+	chs_belong_to_this = Championship.objects.filter(orgBy_id=org_id)
+	return render(request, 'championship/view_championships.html', {'championships': chs_belong_to_this, 'org': org})
+
+
+def org_operate_chs(request, org_id, chs_id):
+	chs_to_check = Championship.objects.get(pk=chs_id)
+	org = Orgnisation.objects.get(pk=org_id)
+	if chs_to_check.orgBy.id == org.id:
+		return render(request, 'championship/check_chs.html', {'chs_to_check': chs_to_check})
+	else:
+		return HttpResponse('do not match')
+
+
 def org_club_index(request):
 	return render(request, 'org_club/club_index.html')
 
 
 def club_operate(request, org_id):
-	#放弃了在这个view函数中处理team的form
+	# 放弃了在这个view函数中处理team的form
 	# if request.method == 'GET':
 	# 	player_management_form = team_member_management()
-		club_org = Orgnisation.objects.get(pk=org_id)
-		teams_belong_to_this = Team.objects.filter(belongTo_id=org_id)
-		return render(request, 'org_club/club_operate.html', {'club': club_org, 'teams': teams_belong_to_this})
-	# if request.method == 'POST':
-	# 	player_management_form = team_member_management(request.POST)
-	# 	org_club = Orgnisation.objects.get(pk=org_id)
-	# 	if player_management_form.is_valid():
-	# 		player_management_form.save()
-	# 		return HttpResponse('success')
-	# 	else:
-	# 		return HttpResponse('error')
-	
-	
+	club_org = Orgnisation.objects.get(pk=org_id)
+	teams_belong_to_this = Team.objects.filter(belongTo_id=org_id)
+	return render(request, 'org_club/club_operate.html', {'club': club_org, 'teams': teams_belong_to_this})
+
+
+# if request.method == 'POST':
+# 	player_management_form = team_member_management(request.POST)
+# 	org_club = Orgnisation.objects.get(pk=org_id)
+# 	if player_management_form.is_valid():
+# 		player_management_form.save()
+# 		return HttpResponse('success')
+# 	else:
+# 		return HttpResponse('error')
+
+
 def club_team_list_operate(request, org_id, team_id):
 	if request.method == 'GET':
 		player_list_form = TeamMemberManagement()
 		team_to_check = Team.objects.get(pk=team_id)
-		return render(request, 'org_club/team_operate.html', {'player_list_form': player_list_form, 'team_selected': team_to_check})
+		return render(request, 'org_club/team_operate.html',
+					  {'player_list_form': player_list_form, 'team_selected': team_to_check})
 	if request.method == 'POST':
 		player_list_form = TeamMemberManagement(request.POST)
 		team_to_check = Team.objects.get(pk=team_id)
@@ -68,8 +88,8 @@ def club_team_list_operate(request, org_id, team_id):
 				return HttpResponse('error')
 		else:
 			return HttpResponse('club and team do not match. ')
-		
-		
+
+
 def club_add_team(request, org_id):
 	if request.method == 'GET':
 		add_team_form = AddTeamForm()
@@ -77,6 +97,7 @@ def club_add_team(request, org_id):
 	if request.method == 'POST':
 		add_team_form = AddTeamForm(request.POST or None, request.FILES or None)
 		add_team_form.belongTo = Orgnisation.objects.get(pk=org_id)
+		add_team_form.save(commit=False)
 		if add_team_form.is_valid():
 			add_team_form.save()
 			print('team added')

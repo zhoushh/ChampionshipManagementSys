@@ -9,10 +9,11 @@
 				<a href='/' class="list-group-item list-group-item-action">
 					日程
 				</a>
-				<a href="{% url 'article:org_create_article' %}" class="list-group-item list-group-item-action">
+				<a href="{% url 'org:org_create_article' %}" class="list-group-item list-group-item-action">
 					信息发布
 				</a>
-				<a href="{% url 'orgnisation:orgOperationView' %}" class="list-group-item list-group-item-action active">
+				<a href="{% url 'orgnisation:orgOperationView' %}"
+				   class="list-group-item list-group-item-action active">
 					赛事管理
 				</a>
 			</div>
@@ -22,6 +23,19 @@
 			<span style="align-items: center">
 			<div class="btn-group btn-group-lg" role="group">
 
+				<a class="btn btn-outline-primary" href="{% url 'orgnisation:org_add_chs' %}"
+				   style="text-decoration-line: none; cursor: pointer;">
+				添加赛事</a>
+
+				<a href="{% url 'org:org_view_chs' user.userInOrg.id %}" class="btn btn-outline-primary" style="text-decoration-line: none; cursor: pointer;">
+					查看赛事
+				</a>
+				<a href="/" class="btn btn-outline-primary" style="text-decoration-line: none; cursor: pointer;">
+					Right
+				</a>
+				<a href="/" class="btn btn-outline-primary" style="text-decoration-line: none; cursor: pointer;">
+					Justify
+				</a>
 			</div>
 			</span>
 		</div>

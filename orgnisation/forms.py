@@ -13,4 +13,4 @@ class AddTeamForm(forms.ModelForm):
 	
 	class Meta:
 		model = Team
-		fields = ('teamType', 'teamName', 'playerList', 'belongTo', )
+		fields = ('teamType', 'teamName', 'belongTo', )

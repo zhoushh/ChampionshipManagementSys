@@ -28,6 +28,7 @@ class Championship(models.Model):
 	rank_for_league = models.FileField(upload_to='Championship/league', null=True)
 	rank_for_cup = models.FileField(upload_to='Championship/cup', null=True)
 	timetable = models.FileField(upload_to='Championship/timetable', null=True)
+	team_list = models.TextField(null=True)
 	
 	def __str__(self):
 		return self.chsName
